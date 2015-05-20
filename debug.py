@@ -13,6 +13,9 @@ def noop(*args):
 
 
 def Debug(name):
+  if env is None:
+    return noop
+
   escaped_env = re.escape(env)
   escaped_env = escaped_env.replace('\\*', '.*?')
   escaped_env = escaped_env.replace(',', '|')
